@@ -1,0 +1,278 @@
+﻿[
+  {
+    "id": "020d18ea-b1eb-4e54-ba79-655da2652232",
+    "descripcioncategoria": "Todas las gaseosas de la marca Big Cola ",
+    "idcategoria": "020d18ea-b1eb-4e54-ba79-655da2652232",
+    "nombrecategoria": "Gaseosa Big Cola"
+  },
+  {
+    "id": "0567afb9-176f-42b6-8705-2d71c21502ff",
+    "descripcioncategoria": "Todos los juegos de la marca California",
+    "idcategoria": "0567afb9-176f-42b6-8705-2d71c21502ff",
+    "nombrecategoria": "Jugos California"
+  },
+  {
+    "id": "14010077-a1d0-4f93-b32d-c440dd117130",
+    "descripcioncategoria": "Todo los jugos de la marca Postobón",
+    "idcategoria": "14010077-a1d0-4f93-b32d-c440dd117130",
+    "nombrecategoria": "Jugos Postobon"
+  },
+  {
+    "id": "157cd631-e29d-4a02-bb4e-9a7e694b14e7",
+    "descripcioncategoria": "Todos los paquetes de la marca Margarita",
+    "idcategoria": "157cd631-e29d-4a02-bb4e-9a7e694b14e7",
+    "nombrecategoria": "Galerias Margarita"
+  },
+  {
+    "id": "173ef6f7-8ba9-4eb9-8874-c54796cbe20c",
+    "descripcioncategoria": "Todos los lácteos de la marca galgeria",
+    "idcategoria": "173ef6f7-8ba9-4eb9-8874-c54796cbe20c",
+    "nombrecategoria": "Lacteos Alqueria"
+  },
+  {
+    "id": "2dd0b9c1-9894-4a53-ae52-aa18980a1456",
+    "descripcioncategoria": "Todos los cafes de casaluker",
+    "idcategoria": "2dd0b9c1-9894-4a53-ae52-aa18980a1456",
+    "nombrecategoria": "Cafe Casaluker"
+  },
+  {
+    "id": "33f84e26-7ccb-4c11-9c27-d5b2d22dd4e0",
+    "descripcioncategoria": "Todos los embutidos",
+    "idcategoria": "33f84e26-7ccb-4c11-9c27-d5b2d22dd4e0",
+    "nombrecategoria": "Embutidos"
+  },
+  {
+    "id": "44b5b8bc-df9b-4ac9-a992-0c0b81190956",
+    "descripcioncategoria": "Todos los productos relacionados con pasteleria",
+    "idcategoria": "44b5b8bc-df9b-4ac9-a992-0c0b81190956",
+    "nombrecategoria": "Pasteleria"
+  },
+  {
+    "id": "4996b7cb-7e62-4aef-a57e-81d0b9db951b",
+    "descripcioncategoria": "Todos los jugos de la marca Big Cola",
+    "idcategoria": "4996b7cb-7e62-4aef-a57e-81d0b9db951b",
+    "nombrecategoria": "Jugos Big Cola"
+  },
+  {
+    "id": "4c124536-b4a0-4d31-94a9-f1916146cd4f",
+    "descripcioncategoria": "Todo lo relacionado con Agua",
+    "idcategoria": "4c124536-b4a0-4d31-94a9-f1916146cd4f",
+    "nombrecategoria": "Agua"
+  },
+  {
+    "id": "52cbfec0-1ecb-431c-ad60-5f1b01c6b8ea",
+    "descripcioncategoria": "Toda la gaseosa de la marca coca cola",
+    "idcategoria": "52cbfec0-1ecb-431c-ad60-5f1b01c6b8ea",
+    "nombrecategoria": "Gaseosa Coca Cola"
+  },
+  {
+    "id": "55373eb7-8762-4033-a68f-892a3430b348",
+    "descripcioncategoria": "Todo el pan de 1000 pesos",
+    "idcategoria": "55373eb7-8762-4033-a68f-892a3430b348",
+    "nombrecategoria": "Panaderia Pan1000"
+  },
+  {
+    "id": "60fe5630-fe65-40f4-9735-8952faac1d82",
+    "descripcioncategoria": "Todo el pan de 500 pesos ",
+    "idcategoria": "60fe5630-fe65-40f4-9735-8952faac1d82",
+    "nombrecategoria": "Panaderia pan500"
+  },
+  {
+    "id": "61da7676-0bc3-4798-9d47-4d0caedd0d44",
+    "descripcioncategoria": "Todas las gaseosas de la marca Bavaria",
+    "idcategoria": "61da7676-0bc3-4798-9d47-4d0caedd0d44",
+    "nombrecategoria": "Gaseosa Babaria"
+  },
+  {
+    "id": "66c59165-b61f-43b2-ab66-1463c5e8d50b",
+    "descripcioncategoria": "Toda la gaseosa de la marca Postobón",
+    "idcategoria": "66c59165-b61f-43b2-ab66-1463c5e8d50b",
+    "nombrecategoria": "Gaseosa Postobon"
+  },
+  {
+    "id": "6f08fadf-b04a-4a19-8936-c0730e1ade15",
+    "descripcioncategoria": "Todo el pan de 300 pesos elaborado en la panaderia",
+    "idcategoria": "6f08fadf-b04a-4a19-8936-c0730e1ade15",
+    "nombrecategoria": "Panaderia Pan300"
+  },
+  {
+    "id": "78c4db8c-91b4-4bb0-b9a3-393009f7dec5",
+    "descripcioncategoria": "Todos los productos de productividad",
+    "idcategoria": "78c4db8c-91b4-4bb0-b9a3-393009f7dec5",
+    "nombrecategoria": "Productividad"
+  },
+  {
+    "id": "7e3cde9c-c508-4df3-9a79-39e6b837f296",
+    "descripcioncategoria": "Todos los juegos de la marca alqueria",
+    "idcategoria": "7e3cde9c-c508-4df3-9a79-39e6b837f296",
+    "nombrecategoria": "Juegos Alqueria"
+  },
+  {
+    "id": "855150fe-3bb2-49fb-a268-627ebed85f38",
+    "descripcioncategoria": "Toda la gaseosa de la marca Postobón",
+    "idcategoria": "855150fe-3bb2-49fb-a268-627ebed85f38",
+    "nombrecategoria": "Gaseosa Postobon"
+  },
+  {
+    "id": "8674984f-bd52-4c74-9c26-01354307b9f2",
+    "descripcioncategoria": "Huevos para la venta",
+    "idcategoria": "8674984f-bd52-4c74-9c26-01354307b9f2",
+    "nombrecategoria": "Huevos Venta Panaderia"
+  },
+  {
+    "id": "874b3891-6374-40e2-b4d3-06df0ddb29c8",
+    "descripcioncategoria": "Todos los cafes de casaluker",
+    "idcategoria": "874b3891-6374-40e2-b4d3-06df0ddb29c8",
+    "nombrecategoria": "Chocolates Casaluker"
+  },
+  {
+    "id": "87813764-2abd-42ff-b60e-929b8f8cd3c5",
+    "descripcioncategoria": "Todos los cigarrillos",
+    "idcategoria": "87813764-2abd-42ff-b60e-929b8f8cd3c5",
+    "nombrecategoria": "Cigarrillos"
+  },
+  {
+    "id": "8e33871f-d8c7-44f5-8b42-90bdf6ff8a08",
+    "descripcioncategoria": "Todo lo de aseo",
+    "idcategoria": "8e33871f-d8c7-44f5-8b42-90bdf6ff8a08",
+    "nombrecategoria": "Aseo"
+  },
+  {
+    "id": "97cdf5f0-b33b-4b18-922c-f0b5c853e945",
+    "descripcioncategoria": "Todos los licores menos la cerveza",
+    "idcategoria": "97cdf5f0-b33b-4b18-922c-f0b5c853e945",
+    "nombrecategoria": "Licores"
+  },
+  {
+    "id": "99ed2ff7-ae37-4ceb-947e-d7931cf3f7f1",
+    "descripcioncategoria": "Todos los productos de paqueteria de canasta familiar",
+    "idcategoria": "99ed2ff7-ae37-4ceb-947e-d7931cf3f7f1",
+    "nombrecategoria": "Abarrotes"
+  },
+  {
+    "id": "9e9d247e-45a8-4588-b41b-aad95f52cb53",
+    "descripcioncategoria": "Huevos para panaderia",
+    "idcategoria": "9e9d247e-45a8-4588-b41b-aad95f52cb53",
+    "nombrecategoria": "Huevo panaderia"
+  },
+  {
+    "id": "aaa6e42a-f24e-4234-84d0-e10c38f4168f",
+    "descripcioncategoria": "Todos los dulces",
+    "idcategoria": "aaa6e42a-f24e-4234-84d0-e10c38f4168f",
+    "nombrecategoria": "Golosinas"
+  },
+  {
+    "id": "abfface5-ffec-4dca-9ab2-5c171b22c630",
+    "descripcioncategoria": "Todos los productos que se utilizan para la elaboración de productos de panadería",
+    "idcategoria": "abfface5-ffec-4dca-9ab2-5c171b22c630",
+    "nombrecategoria": "Insumo Panaderia"
+  },
+  {
+    "id": "b05e0c4a-9a42-4226-9988-fd59888d25fd",
+    "descripcioncategoria": "Todos los productos lácteos derivados con la marca Alpina",
+    "idcategoria": "b05e0c4a-9a42-4226-9988-fd59888d25fd",
+    "nombrecategoria": "Lacteos Alpina"
+  },
+  {
+    "id": "b419b116-3da9-4202-bfbd-c251fd39f4f5",
+    "descripcioncategoria": "Todos los cafes de Distrimarcas",
+    "idcategoria": "b419b116-3da9-4202-bfbd-c251fd39f4f5",
+    "nombrecategoria": "Cafe Distrimarcas"
+  },
+  {
+    "id": "b5213886-fa41-4de9-a3f6-ac771c732e07",
+    "descripcioncategoria": "\nTodos los productos elaborados en la greca",
+    "idcategoria": "b5213886-fa41-4de9-a3f6-ac771c732e07",
+    "nombrecategoria": "Panaderia Greca "
+  },
+  {
+    "id": "b8bbe276-1d2f-466d-b11e-789a795511b0",
+    "descripcioncategoria": "Todos los juegos de la marca Alpina",
+    "idcategoria": "b8bbe276-1d2f-466d-b11e-789a795511b0",
+    "nombrecategoria": "Alpina Jugos"
+  },
+  {
+    "id": "b995c676-af8d-42df-a1cb-b6463cbce827",
+    "descripcioncategoria": "Todos los chocolates de la marca Distrimarcas",
+    "idcategoria": "b995c676-af8d-42df-a1cb-b6463cbce827",
+    "nombrecategoria": "Chocolates Distrimarcas"
+  },
+  {
+    "id": "be209ac5-463c-405d-bbea-a32119169885",
+    "descripcioncategoria": "Toda la galleteria elaborada en la panadería ",
+    "idcategoria": "be209ac5-463c-405d-bbea-a32119169885",
+    "nombrecategoria": "Panaderia Galleteria"
+  },
+  {
+    "id": "c15a1619-6a4b-44c4-8837-c1996beef219",
+    "descripcioncategoria": "Toda la gaseosa de la marca Big Cola",
+    "idcategoria": "c15a1619-6a4b-44c4-8837-c1996beef219",
+    "nombrecategoria": "Gaseosa Big Cola"
+  },
+  {
+    "id": "caba4578-4270-4279-9f81-0bdd58dcbf4d",
+    "descripcioncategoria": "Pan de 200 elaborado en la panadería ESPIGA",
+    "idcategoria": "caba4578-4270-4279-9f81-0bdd58dcbf4d",
+    "nombrecategoria": "Panaderia Pan200"
+  },
+  {
+    "id": "cbdba9cb-e797-4f87-aa9c-583d846ff799",
+    "descripcioncategoria": "Todo el pan de 500 pesos elaborado en la panaderia",
+    "idcategoria": "cbdba9cb-e797-4f87-aa9c-583d846ff799",
+    "nombrecategoria": "Pananderia Pan500"
+  },
+  {
+    "id": "d2ea34d2-946c-4bf0-ab71-0322a6ebc1d8",
+    "descripcioncategoria": "Todos los lácteos no incluye alpina",
+    "idcategoria": "d2ea34d2-946c-4bf0-ab71-0322a6ebc1d8",
+    "nombrecategoria": "Lacteos"
+  },
+  {
+    "id": "d9a53649-4e72-4bd0-97d3-8dcd820b9bd7",
+    "descripcioncategoria": "Todas las galgerias de Ramo",
+    "idcategoria": "d9a53649-4e72-4bd0-97d3-8dcd820b9bd7",
+    "nombrecategoria": "Galgerias Ramo"
+  },
+  {
+    "id": "da6d118c-4dc3-4c5d-9295-0865dcdf8e50",
+    "descripcioncategoria": "Todas las galgeria de Distrimarcas",
+    "idcategoria": "da6d118c-4dc3-4c5d-9295-0865dcdf8e50",
+    "nombrecategoria": "Galgerias Distrimarcas"
+  },
+  {
+    "id": "e38dd2cd-a326-46fa-9249-f7618515cc03",
+    "descripcioncategoria": "Todos los medicamentos y cremas",
+    "idcategoria": "e38dd2cd-a326-46fa-9249-f7618515cc03",
+    "nombrecategoria": "Drogueria"
+  },
+  {
+    "id": "e75aef93-e909-4839-8bee-f961df115990",
+    "descripcioncategoria": "Todo el pan de 2000 elaborado en la panaderia",
+    "idcategoria": "e75aef93-e909-4839-8bee-f961df115990",
+    "nombrecategoria": "Panaderia Pan2000"
+  },
+  {
+    "id": "e94a6a2c-6253-4c09-887b-a7d57d6573d5",
+    "descripcioncategoria": "Todo el pan de 2500 pesos elaborado en la panadería",
+    "idcategoria": "e94a6a2c-6253-4c09-887b-a7d57d6573d5",
+    "nombrecategoria": "Panaderia Pan2500"
+  },
+  {
+    "id": "ebb5efec-e0c9-442a-a670-e3c91f1e69d0",
+    "descripcioncategoria": "Todas la cerveza de todas las marcas",
+    "idcategoria": "ebb5efec-e0c9-442a-a670-e3c91f1e69d0",
+    "nombrecategoria": "Cerveza"
+  },
+  {
+    "id": "f0a6d7f1-e856-42f8-9cc8-c5762fa7328c",
+    "descripcioncategoria": "Todos los paquetes de la marca Super Ricas",
+    "idcategoria": "f0a6d7f1-e856-42f8-9cc8-c5762fa7328c",
+    "nombrecategoria": "Galerias Super Ricas"
+  },
+  {
+    "id": "f22684db-297c-4156-9715-5613f17290b6",
+    "descripcioncategoria": "Todos los productos relacionados con desayuno",
+    "idcategoria": "f22684db-297c-4156-9715-5613f17290b6",
+    "nombrecategoria": "Desayunos"
+  }
+]
