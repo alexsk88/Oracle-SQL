@@ -133,7 +133,11 @@ INSERT INTO prestamo VALUES (
 TO_DATE('2018-01-01 23:27:54', 'YYYY-MM-DD HH24:MI:SS'),
 10,
 TO_DATE('2018-11-01 23:27:54', 'YYYY-MM-DD HH24:MI:SS');
+
+
+-------------------------------------------------------------
 --TALLER 
+
 /*3. Nombre del alumno, el nombre del libro y la fecha inicial para los préstamos
 activos (no se han entregado), de tal forma que sea ordenado por fecha.*/
 SELECT alumno.nombre as NameStudent, libro.nombre as NameBook, fehca_inicial, dias_prestamo, fehca_entrega 
@@ -174,18 +178,34 @@ WHERE (prestamo.fehca_inicial + dias_prestamo) < fecha_actual.fecha
 
 -- 7. Nombre de los libros que más han sido prestados.
 
-    -- NOMBRE DE LOS LIBROS Y CANTIDAD DE PRESTAMOS
+    -- LIBROS Y CANTIDAD DE PRESTAMOS
         create view CLibrosPrestamo as
-        select prestamo.cod_libro ,count(*) as Cantidad_Prestamos from prestamo
-        inner join libro ON libro.codigo =prestamo.cod_libro
+        select prestamo.cod_libro ,count(*) as Cantidad_Prestamos 
+        from prestamo
+            inner join libro ON libro.codigo =prestamo.cod_libro
         GROUP by prestamo.cod_libro;
 
-
-        SELECT libro.* , CLibrosPrestamo.Cantidad_Prestamos FROM libro
+        -- Ahora el  Nombre
+        SELECT libro.* , CLibrosPrestamo.Cantidad_Prestamos 
+        FROM libro
         inner join CLibrosPrestamo ON CLibrosPrestamo.cod_libro = libro.codigo;
 
     
 
 -- 8. Nombre del libro con menos préstamos.
+    create view valorminimo_prestamos as
+    SELECT min(Cantidad_Prestamos) as ValorMinimo FROM clibrosprestamo;
 
+    -- libro o libros con menos préstamos.
+    SELECT * 
+    FROM CLibrosPrestamo,valorminimo_prestamos 
+    where Cantidad_Prestamos = valorminimo_prestamos.VALORMINIMO;
 
+    -- Ahora el NOMBRE sin vista :D:D
+
+    select * from LIBRO where CODIGO IN
+    (
+        SELECT  COD_LIBRO
+        FROM CLibrosPrestamo,valorminimo_prestamos 
+        where Cantidad_Prestamos = valorminimo_prestamos.VALORMINIMO
+    );

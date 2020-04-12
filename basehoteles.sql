@@ -220,3 +220,48 @@ SELECT * FROM habitacion;
 SELECT DATEDIFF(day,  fecha_incio,fecha_entrega) from reserva where codigo = 6;
 
 -- Hacer operacion  dias * valor_habitacy sumar todas las las multiplicaiones
+
+
+
+-- Empleados que pertenecen al cargo con código 1
+	select * from Empleado where cargo = 1;
+
+-- Empleados que pertenecen al cargo de Masajista
+
+	select cedula_empleado,empleado.nombre, count(*) as numerodehabitaciones 
+    from empleado_habitacion
+
+;
+
+--  El número de las habitaciones a cargo de cada uno de los empleados de Habitación 
+	
+	select cedula_empleado,empleado.nombre, count(*) as NumerodeHabitaciones
+    from empleado_habitacion 
+        inner join empleado on empleado.CEDULA = empleado_habitacion.cedula_empleado
+        group by cedula_empleado;
+
+-- Cantidad de habitaciones a cargo de Lalo Pérez.
+
+-- NOTA: Como no tengo a Lalo Perez, lo voy a hacer con Paco (cedula: 1015)
+
+    select cedula_empleado,empleado.nombre, count(*) as NumerodeHabitaciones 
+    from empleado_habitacion 
+        inner join empleado on empleado.CEDULA = empleado_habitacion.cedula_empleado 
+        and empleado.CEDULA = 1015
+    group by cedula_empleado;
+
+
+-- Número de las habitaciones que tienen el servicio de hidromasaje.
+
+select * from habitacion_caracteristica where codigo_caracterisca = 4;
+
+-- Clientes que actualmente se encuentran hospedados
+
+select * from clientes where CEDULA in
+(select cedula_cliente from reservas where curdate() between fecha_inicio AND fecha_fin);
+
+-- Habitaciones alquiladas que quedan disponibles dentro de 5 días.
+
+select * from reservas_habitaciones where id_reserva in
+(select id_reserva from reservas where (curdate() between fecha_inicio AND fecha_fin)
+AND  fecha_fin > DATE_ADD(curdate(), INTERVAL 5 DAY));
