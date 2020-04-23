@@ -209,3 +209,8 @@ WHERE (prestamo.fehca_inicial + dias_prestamo) < fecha_actual.fecha
         FROM CLibrosPrestamo,valorminimo_prestamos 
         where Cantidad_Prestamos = valorminimo_prestamos.VALORMINIMO
     );
+
+
+--Nombre de los alumnos a quienes se les ha prestado el 
+--libro Bases de Datos Relacionales.
+
