@@ -55,7 +55,7 @@ begin
     loop
         fetch cCargos into vReg;
         exit when cCargos%notfound;
-    DBMS_OUTPUT.put_line (  vReg.codigo  || ' ' || vReg.nombre);
+        DBMS_OUTPUT.put_line (  vReg.codigo  || ' ' || vReg.nombre);
     end loop;
     close cCargos;
 end;
@@ -88,7 +88,11 @@ begin
             end if;
         end if;
         
-        DBMS_OUTPUT.put_line (  vReg.precio  || ' -' || vReg.numero || ' -' || vNuevoPrecion);
+        DBMS_OUTPUT.put_line (   '________________________');
+        DBMS_OUTPUT.put_line (  'PRECIO: ' ||vReg.precio );
+        DBMS_OUTPUT.put_line (   'NUM_HABITACION: ' || vReg.numero );
+        DBMS_OUTPUT.put_line (   'NEW_PRECIO:  ' || vNuevoPrecion);
+        DBMS_OUTPUT.put_line (   '________________________');
     end loop;
     close c_habitacion;
 end;

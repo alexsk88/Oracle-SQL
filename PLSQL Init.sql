@@ -65,3 +65,45 @@ BEGIN
   END LOOP;
 
 END;
+
+-- Seleccionar un solo campo
+
+-- listado y el valor de rconocimeintos
+
+-- si el empleado es mayor de 50 años-> se le da un reconomiento 
+-- de dos salarios minimos, SINO solo un salario minimo para estos
+-- times de crisis
+
+
+
+
+set SERVEROUT ON;
+declare
+
+    cursor c_fehca_actual is select  CURRENT_TIMESTAMP from dual;
+    cursor c_empleados is select * from empleado;
+    vEmple c_empleados%rowtype;
+
+    fecha_actual VARCHAR(50);
+    edad INTEGER;
+begin
+  
+  	SELECT TO_CHAR(SysDate,'YYYY/MM/DD HH24:MI:SS') todays_date 
+	INTO fecha_actual
+	FROM dual;
+  
+    open c_empleados;
+        loop
+            fetch c_empleados into vEmple;
+            exit when c_empleados%notfound;
+        
+                -- edad := fecha_actual -  vEmple.FECHA_NACIMIENTO;
+                 DBMS_OUTPUT.PUT_LINE('Nombre:  '||vEmple.nombre || ' tiene ' || edad);
+        end loop;
+   
+    close c_empleados;
+
+end;
+
+
+select * from empleado;
