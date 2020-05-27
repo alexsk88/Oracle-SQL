@@ -46,6 +46,9 @@ insert into categoria_producto values(3,'cafeteria','articulos de cafeteria');
 insert into categoria_producto values(4,'abarrotes','articulos de abarootes');
 insert into categoria_producto values(5,'drogeria','articulos de drogeria');
 insert into categoria_producto values(6,'aseo','articulos de aseo');
+insert into categoria_producto values (152,'Papeleria','articulos de papeleria');
+insert into categoria_producto values (36,'Cosmeticos','articulos de papeleria');
+
 
 create table producto(
     id int NOT NULL,
@@ -110,3 +113,50 @@ create table detalle_factura(
     FOREIGN KEY (num_factura) REFERENCES factura(id),
     FOREIGN KEY (cod_producto) REFERENCES producto(id)
 );
+
+
+--CONSULTASSSSSS SWEETS
+
+-- Enumera de 1 a N, los id;
+SELECT id,RANK () OVER ( ORDER BY id ) rank_no 
+FROM
+categoria_producto;
+
+-- Vista de lo anterior
+create view idcategoriasrank as
+SELECT id,RANK () OVER ( ORDER BY id DESC ) rank_no 
+FROM
+categoria_producto;
+
+-- ULTIMO VALOR
+select * from idcategoriasrank where rank_no IN
+(select max(rank_no) from idcategoriasrank); 
+
+-- PRIMER VALOR
+select * from idcategoriasrank where rank_no IN
+(select min(rank_no) from idcategoriasrank); 
+
+
+--------------------- PLSQL---------------------------
+
+--PL Get All Categorias
+create or replace procedure categorias(p_cursor out types.ref_cursor) as
+begin
+    open p_cursor for
+    select * from categoria_producto;
+end;
+ 
+-- Cateforias con rank muy proo
+select cp.*, cra.rank_no from categoria_producto cp
+inner join idcategoriasrank cra on cp.id = cra.id;
+
+
+
+-- Cursor para traer categoria de acuerdo al rank 
+create or replace procedure categorias_by_rank(
+p_cursor out types.ref_cursor,
+num_rank IN int) as
+begin
+    open p_cursor for
+    select * from categoriascon_rank where rank_no = num_rank;
+end;
