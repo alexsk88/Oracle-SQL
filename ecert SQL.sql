@@ -99,20 +99,8 @@ left join tenrollments ten ON ten.id = te.tenrollment_id
 inner join tevaluations teval ON teval.id = ten.tevaluation_id
 left join thistoric_questions thq ON thq.thistoric_evaluation_id = te.id;
 
-
-select teva.nombre as 'name_eval', tcat.nombre as 'Name Categoria', q.enunciado,
-(1+1) as 'SIMA', a.respuesta
-from tcategories tcat 
-inner join tevaluations teva ON teva.id = tcat.tevaluation_id
-right join questions q ON q.tcategory_id = tcat.id
-inner join answers a ON a.question_id = q.id;
-
-
-
 select q.id, q.titulo, q.enunciado, concat('perro, demo,', a.respuesta) as 'Listado' from questions q
 inner join answers a ON a.question_id = q.id;
-
-
 
 
 SELECT COUNT(a.id) as 'NO. RTA', a.question_id, q.enunciado, 
@@ -123,23 +111,23 @@ GROUP BY a.question_id
 ORDER BY COUNT(a.id) DESC;
 
 
-
 select * from thistoric_answers;
 
-#1468
+#1468 replace(trim(q.enunciado),',',' ')    replace(prta.RTA,',',' ')
+create or replace view gabrica2 as (
 select u.identity 'Identificacion',
- concat(u.name, ' ', u.second_name) 'Nombre Usuario', 
+ concat(u.name, ' ', u.second_name) 'Nombre_Usuario', 
  c.name 'Compañia', 
  p.name 'Cargo',
  a.name 'Area',
  l.name 'Localizacion',
  g.name 'Grupo',
  the.attempt_id,
- te.nombre 'Nombre Evaluación', 
- q.enunciado, 
- prta.RTA, 
+ te.nombre 'Nombre_Evaluacion', 
+ 'enun' 'Enunciado', 
+ 'eraevalu' as 'rta_evaluacion', 
  prta.status,
- if(tha.user_answer = 0, ' -- ','SELECCIONADA') 'RTA USER ANSWER'
+ if(tha.user_answer = 0, ' -- ','SELECCIONADA') 'RTA_USER_ANSWER'
 from thistoric_evaluations the
 inner join users u ON u.id = the.user_id and u.profile_id != 1
 inner join companies c ON c.id = u.company_id 
@@ -152,22 +140,114 @@ inner join questions q ON q.id = thq.question_id
 inner join preguntas_rta prta ON prta.idqueansw = q.id
 inner join tenrollments ten ON ten.id= the.tenrollment_id
 inner join tevaluations te ON te.id= ten.tevaluation_id
-inner join thistoric_answers tha ON tha.thistoric_question_id = thq.id;
+inner join thistoric_answers tha ON tha.thistoric_question_id = thq.id);
+
+
+
+select distinct Nombre_Evaluacion from gabrica2;
  
-create view preguntas_rta as(
-select q.id 'idqueansw',a.respuesta 'RTA', if(a.correcta = 0, 'Incorrecta','Correcta') as 'status'
+create or replace view preguntas_rta as(
+select q.id 'idqueansw',a.respuesta 'RTA', if(a.correcta = 0, 'Incorrecta','Correcta') as 'status', a.id as 'id_answer'
 from questions q
 right join answers a ON a.question_id = q.id);
 
+select count(*) from tevaluations;
+
+select distinct te.nombre from tevaluations te
+inner join tenrollments ten ON ten.tevaluation_id = te.id;
+
+select replace(enunciado,',','****') from questions;
 
 
 select q.id, q.enunciado, a.respuesta, if(a.correcta = 0, 'Incorrecta','Correcta') as 'status'
 from questions q
-right join answers a ON a.question_id = q.id
-LIMIT 15;
+right join answers a ON a.question_id = q.id;
 
 select q.id, q.enunciado from questions q
 LIMIT 10;
+
+create or replace view preguntas_rta_1 as(
+select 
+	q.id 'id_question',
+    REPLACE(REPLACE(a.respuesta , CHAR(13), ''), CHAR(10), '') 'name_anser',
+    a.id as 'id_answer',
+    REPLACE(REPLACE(q.enunciado, CHAR(13), ''), CHAR(10), '') 'name_question',
+    if(a.correcta = 0, 'Incorrecta','Correcta') as 'status'
+from questions q
+right join answers a ON a.question_id = q.id);
+
+create or replace view users_data as (
+	select
+		u.id 'id_uuser',
+        u.identity 'identity',
+		concat(u.name, ' ', u.second_name) 'full_name',
+		c.name 'company',
+        p.name 'cargo',
+        a.name 'area',
+        l.name 'localization',
+        g.name 'group'
+    from users u
+	inner join companies c ON c.id = u.company_id 
+	inner join positions p ON p.id = u.position_id
+	inner join areas a ON a.id = u.area_id
+	inner join localizations l ON l.id = u.localization_id
+	inner join groups g ON g.id = u.group_id
+    where u.profile_id != 1
+);
+
+select * from users_data;
+
+# prta.name_question 'name_questions',
+# prta.name_anser 'name_answer',
+
+# prta.id_question 'id_questions',
+# prta.id_answer 'id_answer',
+
+create or replace view gabrica2 as (
+select 
+	u.identity 'identificacion',
+	u.full_name,
+    u.company,
+	u.cargo,
+	u.area,
+	u.localization,
+	u.group,
+	te.nombre as 'nombre_evaluacion',
+    REPLACE(prta.name_question,',',';')'name_questions',
+	REPLACE(prta.name_anser,',',';' )'name_answer',
+    prta.status 'status',
+    if(tha.user_answer = 0, '--','SELECCIONADA') 'rta_user'
+from thistoric_evaluations the
+inner join users_data u ON u.id_uuser = the.user_id 
+inner join tenrollments ten ON ten.id = the.tenrollment_id
+inner join thistoric_questions thq ON thq.thistoric_evaluation_id = the.id
+inner join tevaluations te ON te.id = ten.tevaluation_id
+inner join preguntas_rta_1 prta ON prta.id_question = thq.question_id
+inner join thistoric_answers tha ON tha.thistoric_question_id = thq.id 
+order by ten.id);
+
+select  * from gabrica2;
+select name_answer from gabrica2;
+select  count(*) from gabrica2;
+select distinct  nombre_evaluacion from gabrica2;
+
+select  id, enunciado from questions;
+select  id,  REPLACE(REPLACE(enunciado, CHAR(13), ''), CHAR(10), '') from questions;
+select  id, respuesta from answers;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
