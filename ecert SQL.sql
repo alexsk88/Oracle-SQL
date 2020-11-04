@@ -178,9 +178,11 @@ right join answers a ON a.question_id = q.id);
 
 create or replace view users_data as (
 	select
-		u.id 'id_uuser',
+		u.id 'id_user',
         u.identity 'identity',
 		concat(u.name, ' ', u.second_name) 'full_name',
+        u.status 'state',
+        u.manager_id 'boss',
 		c.name 'company',
         p.name 'cargo',
         a.name 'area',
@@ -192,9 +194,139 @@ create or replace view users_data as (
 	inner join areas a ON a.id = u.area_id
 	inner join localizations l ON l.id = u.localization_id
 	inner join groups g ON g.id = u.group_id
-    where u.profile_id != 1
+   
 );
 
+create or replace view preguntas_rta_1 as(
+select 
+	q.id 'id_question',
+    REPLACE(REPLACE(a.respuesta , CHAR(13), ''), CHAR(10), '') 'name_anser',
+    a.id as 'id_answer',
+    REPLACE(REPLACE(q.enunciado, CHAR(13), ''), CHAR(10), '') 'name_question',
+    if(a.correcta = 0, 'Incorrecta','Correcta') as 'status'
+from questions q
+right join answers a ON a.question_id = q.id);
+
+create or replace view users_data2 as (
+	select
+		u.id 'id_user',
+        u.identity 'identity',
+		concat(u.name, ' ', u.second_name) 'full_name',
+        u.status 'state',
+        u.manager_id 'boss_id',
+        concat(man.name, ' ', man.second_name) 'full_name_boss',
+		c.name 'company',
+        p.name 'cargo',
+        a.name 'area',
+        l.name 'localization',
+        g.name 'group'
+    from users u
+	left join users man ON u.id = man.manager_id
+	inner join companies c ON c.id = u.company_id 
+	inner join positions p ON p.id = u.position_id
+	inner join areas a ON a.id = u.area_id
+	inner join localizations l ON l.id = u.localization_id
+	inner join groups g ON g.id = u.group_id
+    where u.id <> man.id
+);
+
+##############################################################################
+### REPORTE HISTORICO DE CAPACITACION
+create or replace view users_data as (
+	select
+		u.id 'id_user',
+        u.identity 'identity',
+		concat(u.name, ' ', u.second_name) 'full_name',
+        u.email 'email',
+        u.status 'state',
+        u.manager_id 'boss',
+		c.name 'company',
+        l.name 'level_cargo',
+        p.name 'cargo',
+        a.name 'area',
+        l.name 'localization',
+        g.name 'group'
+    from users u
+	inner join companies c ON c.id = u.company_id 
+	inner join positions p ON p.id = u.position_id
+	inner join areas a ON a.id = u.area_id
+	inner join localizations l ON l.id = u.localization_id
+	inner join groups g ON g.id = u.group_id
+   
+);
+select count(*) from users_data;
+select * from users_data;
+# where u.profile_id != 1
+
+create or replace view courses_data as (
+select  
+	c.id 'id_course',
+	c.name 'name_course', 
+    ct.name 'name_course_type',
+    cc.name 'name_course_clasification',
+    c.starting 'date_start_course',
+    c.ending 'date_end_course',
+    c.total_hours 'horas',
+    p.id 'id_pro',
+    p.name 'name_provider'
+from courses c
+left join course_types ct on c.course_type_id = ct.id
+left join course_clasifications cc on c.course_clasification_id = cc.id 
+left join course_providers p on p.id = c.course_provider_id
+);
+select * from courses_data;
+select * from courses;
+select count(*) from courses_data; 
+# right join course_schedules cs ON cs.course_id = c.id_course
+ #COALESCE(since,'1900-01-00')
+ #if(tha.user_answer = 0, ' -- ','SELECCIONADA') 'RTA_USER_ANSWER'
+create or replace view historic_capcitacion as (
+select
+	u.identity, 
+    u.full_name,
+    u.email,
+    if(u.state = 0, 'Inactivo','Vigente') 'state_user',
+    u.company,
+    e.position_level,
+    u.cargo,
+    u.area,
+    u.localization,
+    u.group,
+    u.boss,
+    c.name_course,
+    c.name_course_type,
+    c.name_course_clasification,
+    c.name_provider,
+    cs.starts 'date_realizacion',
+    cs.ends 'date_FINAlizacion',
+    e.enroll 'date_matricula',
+    (1+7) 'date_ultimo_estudio',
+    e.limite, 
+    e.percentage, 
+    c.horas, 
+    e.grade
+from enrollments e
+inner join users_data u ON e.user_id = u.id_user
+inner join courses_data c ON c.id_course = e.course_id
+left join course_schedules cs ON cs.id = e.course_schedule_id
+order by u.identity desc);
+
+select count(*) from historic_capcitacion;
+
+select * from historic_capcitacion;
+
+### REPORTE HISTORICO DE CAPACITACION
+##############################################################################
+
+select * from courses;
+select * from course_schedules;
+select count(*) from courses_data;
+select * from courses_data;
+select * from course_providers;
+
+select * from courses;
+select * from enrollments;
+select count(*) from courses;
 select * from users_data;
 
 # prta.name_question 'name_questions',
@@ -292,31 +424,3 @@ left join localizations loc ON loc.id = u.localization_id
 left join companies com ON com.id = u.company_id
 left join projects pro ON pro.id = s.project_id
 order by r1.evaluator_id,r1.user_id, r1.family_competence_id;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
