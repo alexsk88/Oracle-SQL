@@ -10,6 +10,10 @@ select * from users;
 select name,second_name, (cast((DATEDIFF(curdate(),COALESCE(since,'1900-01-00'))/30)as unsigned)) as 'meses de antiguedad' from users 
 where ((cast((DATEDIFF(curdate(),since)/30)as unsigned)) > 0) and status = 1;
 
+SET SQL_SAFE_UPDATES = 0;
+update users
+set encrypted_password = '$2a$10$/3xVti95HmnX/hx.GTwqmOyZZH7h8moXRMc5nc9RHjZ6H4V6DyUJK'
+where id >0;
 
 
 SELECT (cast((DATEDIFF(curdate(),since)/30)as unsigned)) as 'ss' FROM users WHERE (id = 122) LIMIT 1;
